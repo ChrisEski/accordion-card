@@ -1,0 +1,85 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  max-width: 800px;
+  width: 60%;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 5px;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+a {
+  /* text-decoration: none; */
+  /* display: block; */
+  display: block;
+  color: inherit;
+  font-family: inherit;
+  text-align: center;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  /* Transition from color #444 to coloer #ccc */
+  transition: 0.4s;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active,
+.accordion:hover {
+  background-color: #ccc;
+}
+
+.accordion::after {
+  content: '\002B';
+  color: #777;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+  /* Transition for plus icon rotation */
+  transition: transform 250ms ease-in-out;
+}
+
+.active::after {
+  content: '\2212';
+  transform: rotate(180deg);
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+  /* For animated slide down, use the max-height with default=0 instead of display:none */
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+}
+
+.panel p {
+  margin: 10px 0;
+}
